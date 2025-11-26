@@ -1,8 +1,8 @@
 import google.generativeai as genai
 import pandas as pd
 import json
+import os
 from .prompts import MIND_FLAYER_SYSTEM_PROMPT
-import streamlit as st
 from .config import MODEL_NAME
 
 class MindFlayer:
@@ -14,18 +14,20 @@ class MindFlayer:
         else:
             self.model = None
 
-    def ingest_file(self, uploaded_file):
-        if uploaded_file is None:
-            return None
+    def ingest_file(self, file_path):
+        """Reads a local file (CSV or TXT) and returns its content as string."""
+        if not file_path or not os.path.exists(file_path):
+            return "Error: File not found."
         
         try:
-            if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file)
+            if file_path.endswith('.csv'):
+                df = pd.read_csv(file_path)
                 return df.to_string()
-            elif uploaded_file.name.endswith('.txt'):
-                return uploaded_file.read().decode("utf-8")
+            elif file_path.endswith('.txt'):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    return f.read()
             else:
-                return "Unsupported file format."
+                return "Unsupported file format. Please provide .csv or .txt."
         except Exception as e:
             return f"Error reading file: {str(e)}"
 
@@ -48,4 +50,3 @@ class MindFlayer:
             return json.loads(response.text)
         except Exception as e:
             return {"error": f"Gemini Analysis Failed: {str(e)}"}
-

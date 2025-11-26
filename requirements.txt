@@ -12,7 +12,6 @@ rich
 questionary
 beautifulsoup4
 requests
-duckduckgo-search>=6.0.0
 pypdf
 openpyxl
 # Black Ops Modules

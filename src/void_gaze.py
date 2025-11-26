@@ -3,7 +3,6 @@ from googleapiclient.discovery import build
 from .prompts import VOID_GAZE_SYSTEM_PROMPT
 from .config import MODEL_NAME
 import google.generativeai as genai
-from duckduckgo_search import DDGS
 
 class VoidGaze:
     def __init__(self, gemini_api_key, google_api_key, search_engine_id, search_engine_id_image=None):
@@ -33,13 +32,30 @@ class VoidGaze:
     def execute_search(self, query, search_type="web", smart_expand=True):
         results = []
         search_queries = []
-        if " " not in query and len(query) > 3:
+        
+        if search_type == "forum":
+            print(f"[>] INITIATING FORUM DRAGNET for: {query}")
+            forum_dorks = [
+                f'site:reddit.com {query}',
+                f'site:eksisozluk.com {query}',
+                f'site:technopat.net {query}',
+                f'site:donanimhaber.com {query}',
+                f'site:r10.net {query}',
+                f'inurl:forum {query}'
+            ]
+            search_queries.extend(forum_dorks)
+            smart_expand = False 
+            
+        elif " " not in query and len(query) > 3 and search_type == "web":
             print(f"[!] POTENTIAL USERNAME DETECTED: {query}")
             print(f"[>] INITIATING SHERLOCK PROTOCOL for '{query}'...")
             sherlock_hits = self._run_sherlock_scan(query)
             results.extend(sherlock_hits)
-        exact_query = f'"{query}"'
-        search_queries.append(exact_query)
+            
+        if search_type != "forum":
+            exact_query = f'"{query}"'
+            search_queries.append(exact_query)
+
         if smart_expand and self.model and search_type == "web":
             print(f"[+] Engaging AI Target Analysis for: {query}...")
             try:
@@ -49,6 +65,7 @@ class VoidGaze:
                     search_queries.extend(ai_dorks[:3])
             except Exception as e:
                 print(f"[!] AI Query Generation Failed: {e}")
+        
         if search_type == "web":
             social_queries = [
                 f'site:linkedin.com {exact_query}',
@@ -57,26 +74,24 @@ class VoidGaze:
                 f'site:twitter.com {exact_query}'
             ]
             search_queries.extend(social_queries)
+            
         unique_queries = list(dict.fromkeys(search_queries))
         print(f"[>] Executing Deep Scan with {len(unique_queries)} vectors...")
         
         for q in unique_queries:
-            google_results = self._search_google(q, search_type, num_results=2)
+            count = 5 if search_type == "forum" else 2
+            
+            google_results = self._search_google(q, search_type, num_results=count)
             if isinstance(google_results, list):
                 results.extend(google_results)
-            if search_type == "web":
-                ddg_results = self._search_ddg(q, max_results=5) # 5 per query is enough
-                if isinstance(ddg_results, list):
-                    results.extend(ddg_results)
-        if len(results) < 3:
+            
+                    
+        if len(results) < 3 and search_type == "web":
             print(f"[!] Low signal. Engaging loose search protocol for: {query}")
             google_loose = self._search_google(query, search_type, num_results=3)
             if isinstance(google_loose, list):
                 results.extend(google_loose)
-            if search_type == "web":
-                ddg_loose = self._search_ddg(query, max_results=10)
-                if isinstance(ddg_loose, list):
-                    results.extend(ddg_loose)
+                
         unique_results = []
         seen_links = set()
         
@@ -103,8 +118,9 @@ class VoidGaze:
         elif not self.search_engine_id:
              return []
 
+        service = None
         try:
-            service = build("customsearch", "v1", developerKey=self.google_api_key)
+            service = build("customsearch", "v1", developerKey=self.google_api_key, cache_discovery=False)
             search_params["cx"] = target_cx
             res = service.cse().list(**search_params).execute()
             
@@ -125,6 +141,12 @@ class VoidGaze:
             return parsed_results
         except Exception:
             return []
+        finally:
+            if service:
+                try:
+                    service.close()
+                except:
+                    pass
 
     def _run_sherlock_scan(self, username):
         import requests
@@ -152,34 +174,20 @@ class VoidGaze:
         
         for target in targets:
             try:
-                r = requests.get(target['url'], headers=headers, timeout=5)
-                if r.status_code == 200:
-                    print(f"    [+] CONFIRMED HIT: {target['name']}")
-                    hits.append({
-                        "source": f"SHERLOCK: {target['name']}",
-                        "title": f"{username} on {target['name']}",
-                        "link": target['url'],
-                        "snippet": f"Active profile found on {target['name']} matching username '{username}'."
-                    })
+                with requests.Session() as session:
+                    r = session.get(target['url'], headers=headers, timeout=5)
+                    if r.status_code == 200:
+                        print(f"    [+] CONFIRMED HIT: {target['name']}")
+                        hits.append({
+                            "source": f"SHERLOCK: {target['name']}",
+                            "title": f"{username} on {target['name']}",
+                            "link": target['url'],
+                            "snippet": f"Active profile found on {target['name']} matching username '{username}'."
+                        })
             except:
                 pass
                 
         return hits
 
     def _search_ddg(self, query, max_results=20):
-        try:
-            with DDGS() as ddgs:
-                ddg_results = list(ddgs.text(query, region="tr-tr", safesearch="off", max_results=max_results))
-            
-            parsed_results = []
-            if ddg_results:
-                for res in ddg_results:
-                    parsed_results.append({
-                        "source": "DDG",
-                        "title": res.get("title"),
-                        "link": res.get("href"),
-                        "snippet": res.get("body")
-                    })
-            return parsed_results
-        except Exception as e:
-            return []
+        return []

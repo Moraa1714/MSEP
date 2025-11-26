@@ -33,6 +33,7 @@ class GhostCompositor:
 
         NEW INTELLIGENCE:
         {new_intel}
+        """
 
         try:
             response = self.model.generate_content(

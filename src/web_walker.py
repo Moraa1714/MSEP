@@ -14,15 +14,37 @@ class WebWalker:
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
+        from .config import SCRAPING_API_KEY
+        self.scraping_api_key = SCRAPING_API_KEY
 
     def scrape_url(self, url):
-        """Scrapes the content of a URL (HTML, PDF, Excel) and extracts DEEP METADATA."""
         try:
             if not url.startswith("http"):
                 return "Invalid URL"
 
-            response = requests.get(url, headers=self.headers, timeout=15, verify=False)
-            response.raise_for_status()
+            response = None
+            
+            if self.scraping_api_key:
+                try:
+                    proxy_url = "https://api.zenrows.com/v1/"
+                    params = {
+                        "apikey": self.scraping_api_key,
+                        "url": url,
+                        "js_render": "true", 
+                        "premium_proxy": "true" 
+                    }
+                    response = requests.get(proxy_url, params=params, timeout=30)
+                    response.raise_for_status()
+                except Exception as api_error:
+                     return f"Premium API (ZenRows) Failed: {api_error}. Falling back to standard."
+            
+            if not response:
+                try:
+                    response = requests.get(url, headers=self.headers, timeout=15, verify=False)
+                    response.raise_for_status()
+                except Exception as e:
+                    raise e
+
             content_type = response.headers.get('Content-Type', '').lower()
             metadata_report = ""
             if 'application/pdf' in content_type:

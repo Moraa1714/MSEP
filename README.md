@@ -1,8 +1,8 @@
-# 🌌 M.S.E.P. (Midnight Singularity Extraction Program) v0.1
+# 🌌 M.S.E.P. (Midnight Singularity Extraction Program) v0.2 (REDUX)
 
 > **Gelişmiş Otonom OSINT ve Dijital İstihbarat Platformu**
 
-M.S.E.P., "God Mode" protokolü ile çalışan, yapay zeka destekli (Gemini 3.0 Pro) tam otonom bir siber istihbarat aracıdır. Sıradan bir arama motorunun ötesine geçerek; yüzey web, deep web (Tor), sosyal medya ve görsel veriler üzerinde derinlemesine analiz yapar, verileri çapraz sorgular ve hedef hakkında kapsamlı bir dijital profil (Dossier) oluşturur.
+M.S.E.P., "God Mode" protokolü ile çalışan, yapay zeka destekli (Gemini 3.0 Pro) tam otonom bir siber istihbarat aracıdır. Sıradan bir arama motorunun ötesine geçerek; yüzey web, deep web (Tor), forumlar, sosyal medya ve görsel veriler üzerinde derinlemesine analiz yapar, verileri çapraz sorgular ve hedef hakkında kapsamlı bir dijital profil (Dossier) oluşturur.
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![AI Core](https://img.shields.io/badge/AI-Gemini%203%20Pro-purple)
@@ -20,7 +20,7 @@ Sistem, **Merkezi Sinir Sistemi (Core)** ve **Operasyonel Birimler (Black Ops)**
 | Modül | Açıklama |
 |-------|----------|
 | **🧠 Mind Flayer** | Metin ve veri yığınlarını analiz ederek hedefin psikolojik profilini (motivasyonlar, zaaflar, kişilik özellikleri) çıkarır. |
-| **👁️ Void Gaze** | **Sherlock Protokolü** ile 15+ platformda (Github, Twitter, Instagram vb.) kullanıcı adı taraması yapar. Google ve DuckDuckGo üzerinde **AI Query Expansion** (Yapay Zeka Destekli Dork Üretimi) ile hibrit arama gerçekleştirir. |
+| **👁️ Void Gaze** | **Sherlock Protokolü** ile 15+ platformda (Github, Twitter, Instagram vb.) kullanıcı adı taraması yapar. Google ve Forumlar üzerinde **AI Query Expansion** (Yapay Zeka Destekli Dork Üretimi) ile hibrit arama gerçekleştirir. |
 | **🕸️ Constellation** | Toplanan tüm veriler (kişiler, URL'ler, konumlar) arasındaki bağlantıları `NetworkX` ile analiz eder ve ilişki haritası (Graph) oluşturur. |
 | **📝 Black Box** | Operasyon sonunda elde edilen tüm ham veriyi işleyerek profesyonel, Markdown formatında bir istihbarat raporu (Dossier) yazar. |
 | **⚖️ Inquisitor** | Profildeki eksik bilgileri (Gap Analysis) tespit eder ve operatörü yönlendirerek araştırmanın derinleşmesini sağlar. |
@@ -32,7 +32,7 @@ Sistem, **Merkezi Sinir Sistemi (Core)** ve **Operasyonel Birimler (Black Ops)**
 | **👻 Ghost Walker** | `Playwright` kullanarak JavaScript ağırlıklı dinamik siteleri (Instagram, Twitter) bot korumalarını atlatarak ziyaret eder ve kanıt niteliğinde **tam sayfa ekran görüntüsü** alır. |
 | **🧅 Deep Dive** | Yerel **Tor Servisi** (SOCKS5 9050) üzerinden trafiği anonimleştirir ve `.onion` uzantılı Dark Web sitelerinde (Ahmia üzerinden) arama yapar. |
 | **🧬 Visual Cortex** | `DeepFace` kütüphanesini kullanarak fotoğraflardaki yüzleri tespit eder; **Yaş, Cinsiyet, Irk ve Duygu** analizi yapar (Biyometrik Tarama). |
-| **walk Web Walker** | Statik siteleri tarar, **Wayback Machine** üzerinden silinmiş içerikleri bulur, PDF dosyalarını okur ve resimlerin **EXIF (GPS)** verilerini analiz ederek konum tespiti yapar. |
+| **🕸️ Web Walker** | **ZenRows Premium Scraper** entegrasyonu ile Cloudflare/Captcha korumalı siteleri ve forumları deler. Wayback Machine üzerinden silinmiş içerikleri bulur, PDF dosyalarını okur ve resimlerin **EXIF (GPS)** verilerini analiz ederek konum tespiti yapar. |
 
 ---
 
@@ -46,11 +46,11 @@ msep/
 │   └── screenshots/       # Ghost Walker ekran görüntüleri
 ├── src/
 │   ├── mind_flayer.py     # Psikolojik analiz motoru
-│   ├── void_gaze.py       # Arama ve keşif motoru (Google/DDG)
+│   ├── void_gaze.py       # Arama ve keşif motoru (Google/Forumlar)
 │   ├── ghost_walker.py    # Tarayıcı otomasyonu (Playwright)
 │   ├── deep_dive.py       # Tor/Onion ağ geçidi
 │   ├── visual_cortex.py   # Yüz tanıma ve biyometri
-│   ├── web_walker.py      # Web kazıma, EXIF ve Arşiv analizi
+│   ├── web_walker.py      # Web kazıma (ZenRows), EXIF ve Arşiv analizi
 │   ├── constellation.py   # Ağ haritalama (Graph)
 │   ├── black_box.py       # Raporlama sistemi
 │   ├── nexus.py           # Karar mekanizması
@@ -96,6 +96,9 @@ SEARCH_ENGINE_ID=0123456789...
 
 # Google Programmable Search Engine ID (Görsel Arama - Opsiyonel)
 SEARCH_ENGINE_ID_IMAGE=0123456789...
+
+# ZenRows/ScraperAPI Key (Premium Scraping için - Opsiyonel ama Önerilir)
+SCRAPING_API_KEY=...
 ```
 
 ---
@@ -112,6 +115,7 @@ Sistem açıldığında **M.S.E.P.** terminal arayüzü sizi karşılar. Yapay z
 
 > **Örnek Komutlar:**
 > *   *"Mustafa Yılmaz ismini tüm sosyal ağlarda ve dark web'de araştır."*
+> *   *"Konsol Oyun hakkında forumlarda (Reddit, Technopat) ne konuşuluyor?"*
 > *   *"Şu fotoğrafı analiz et: https://ornek.com/foto.jpg"*
 > *   *"https://supheli-site.com adresinin ekran görüntüsünü al ve arşiv kayıtlarına bak."*
 
@@ -120,6 +124,7 @@ Sistem açıldığında **M.S.E.P.** terminal arayüzü sizi karşılar. Yapay z
 Ajan, verdiğiniz emri analiz eder ve aşağıdaki araçları zincirleme olarak kullanır:
 
 *   `[SEARCH: "query"]` -> Yüzey araması başlatır.
+*   `[FORUM_SCAN: "query"]` -> Forumlarda derinlemesine tarama yapar.
 *   `[DEEP_SEARCH: "query"]` -> Tor ağına geçer.
 *   `[GHOST_SCAN: url]` -> Siteye gidip fotoğraf çeker.
 *   `[BIOMETRIC_SCAN: url]` -> Yüz analizi yapar.
@@ -138,4 +143,4 @@ Ajan, verdiğiniz emri analiz eder ve aşağıdaki araçları zincirleme olarak 
 yerel ve uluslararası yasalara göre suç teşkil edebilir. Geliştiriciler, bu aracın kötüye kullanımından doğacak hiçbir sorumluluğu kabul etmez. **Tüm sorumluluk son kullanıcıya aittir.**
 
 ---
-*v0.1 - Midnight Singularity Extraction Program*
+*v0.2 (REDUX) - Midnight Singularity Extraction Program*
